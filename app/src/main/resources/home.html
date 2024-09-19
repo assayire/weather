@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JH Weather App</title>
+	<style>
+		:root {
+			--color-off-white: #fafafa;
+			--color-ivory: #fffff0;
+			--color-lavender-blush: #fff0f5;
+			--color-ghost-white: #f8f8ff;
+
+			--background-color: var(--color-ghost-white);
+			--text-color: #333333;
+			--link-color: #0000ff;
+			--blockquote-bg: #f0f0f0;
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--background-color: #1a1a1a;
+				--text-color: #f0f0f0;
+				--link-color: #6699ff;
+				--blockquote-bg: #2a2a2a;
+			}
+		}
+		@media print {
+			body {
+				max-width: none;
+			}
+		}
+		body {
+			margin: 1em auto;
+			max-width: 40em;
+			padding: 0.62em 3.24em;
+			font: 1.2em/1.62 sans-serif;
+			border-top: 1px solid magenta;
+
+			background-color: var(--background-color);
+			color: var(--text-color);
+		}
+		a {
+			color: var(--link-color);
+			cursor: pointer;
+		}
+		h1,
+		h2,
+		h3 {
+			line-height: 1.2;
+		}
+		h1 + p small {
+    	top: -25px;
+    	position: relative;
+		}
+		blockquote {
+			font-family: Georgia, serif;
+			font-size: 18px;
+			width: 90%;
+			margin: 30px auto;
+			padding: 30px;
+			background-color: --var(blockquote-bg);
+			border-left: 8px solid #4a4a4a;
+			border-top: 1px solid #eee;
+			line-height: 1.6;
+			position: relative;
+			box-shadow: 5px 8px 4px rgba(0, 0, 0, 0.1);
+		}
+		blockquote p {
+			margin-bottom: 0;
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+<!-- insert notes.md -->
+</body>
+</html>
