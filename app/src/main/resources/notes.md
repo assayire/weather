@@ -1,4 +1,4 @@
-# Weather App Dev Notes
+# ☀️ Weather App Dev Notes ☀️
 
 ## First things first
 
@@ -12,7 +12,7 @@ git clone git@github.com:assayire/weather.git
 # - Meh, download the archive: https://github.com/assayire/weather/archive/refs/heads/main.zip
 ```
 
-> <small>NOTE: If you wish to read the source file (markdown) of _this_ document, it is available at `<where-you-cloned>/src/main/resources/notes.md`</small> 
+> <small>NOTE: If you wish to read the source file (markdown) of _this_ document, it is available at `<where-you-cloned>/src/main/resources/notes.md`</small>
 
 ## Project Structure
 
@@ -85,7 +85,7 @@ This API gives the forecast data for the current day. Typically, two.
 
 For example, try this request for coordinates [40.730610,-73.935242](/api/weather?c=40.730610,-73.935242)
 
-Not so important, there are a couple of other endpoints available that are not APIs, such as this [documentation](/) you are reading. 
+Not so important, there are a couple of other endpoints available that are not APIs, such as this [documentation](/) you are reading.
 
 ## Dev Notes[^1]
 
@@ -124,7 +124,7 @@ While I personally like to see significant indentation in Scala 3 at least for s
 
 At work, we have been using the Play framework for our services since the beginning. Recently, we have started experimenting pro bono with `http4s` for a couple of services. Because upgrading Play does not buy us anything but more trouble.
 
-So, I have beginner level but hands-on experience with `http4s`. I chose `http4s` instead of Play because Play is really boring. Or I have become bored with it. Also, the set-up for Play services is verbose compared to `http4s`. In any case, choice of the web server framework / library should not impact the solution. 
+So, I have beginner level but hands-on experience with `http4s`. I chose `http4s` instead of Play because Play is really boring. Or I have become bored with it. Also, the set-up for Play services is verbose compared to `http4s`. In any case, choice of the web server framework / library should not impact the solution.
 
 [^1]: You will same or similar notes split across various places in the code base. This is one place to see all notes giving an overview of the implementation.
 [^2]: I forgot to ask if your team uses Scala 3 / significant indentation.
