@@ -103,9 +103,11 @@ class Nws[F[_]: Monad](using
             case res =>
               res.body
                 .leftMap(NwsException(_))
-                .flatMap(parse)
-                .flatMap(extractForecastData)
-                .leftMap(NwsException(_))
+                .flatMap {
+                  parse(_)
+                    .flatMap(extractForecastData)
+                    .leftMap(NwsException(_))
+                }
                 .fold(M.raiseError, M.pure)
           }
       }

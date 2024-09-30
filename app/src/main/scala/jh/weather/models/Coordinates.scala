@@ -18,8 +18,6 @@ object Coordinates:
         parseRaw(value).leftFlatMap(t => ParseResult.fail(t.getMessage, ""))
       }
 
-  // ValidatingQueryParamDecoderMatcher
-  // object QueryParamMatcher extends QueryParamDecoderMatcher[Coordinates]("c")
   object QueryParamMatcher extends ValidatingQueryParamDecoderMatcher[Coordinates]("c")
 
   def apply(lat: Double, lon: Double): ErrorOr[Coordinates] =

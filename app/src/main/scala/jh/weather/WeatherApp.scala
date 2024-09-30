@@ -9,10 +9,9 @@ import org.http4s.implicits.*
 import org.http4s.server.middleware.{ErrorAction, ErrorHandling}
 import org.typelevel.log4cats.Logger
 
-object WeatherApp extends IOApp.Simple {
+object WeatherApp extends IOApp.Simple with Logging[IO] {
 
   override def run: IO[Unit] =
-    given logger: Logger[IO] = Logging.logger
     val routes = WeatherRoutes[IO]()
 
     EmberServerBuilder
