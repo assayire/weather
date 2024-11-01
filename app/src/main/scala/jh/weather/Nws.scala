@@ -34,8 +34,8 @@ trait NationalWeatherSvc[F[_]]:
  * - We first call the geo json end point with the (latitude, longitude)
  *   and the response payload contains the forecast url.
  * - We extract the forecast url and make a call.
- *   - The response payload contains a root/properties/periods node, 
- *     which is our element of interest for our exercise. We are 
+ *   - The response payload contains a root/properties/periods node,
+ *     which is our element of interest for our exercise. We are
  *     ignoring rest of the payload for brevity.
  *   - My understanding is that periods contains two objects per day.
  *     Upstream logic is based on this understanding. We are parsing
@@ -65,12 +65,13 @@ class Nws[F[_]: Monad](using
             case RequestFailed(r) =>
               M.raiseError(NwsException(s"Failed to fetch geoJson (${r.code})"))
             case res =>
-              res.body
-                .leftMap(NwsException(_))
-                .flatMap(parse)
-                .flatMap(_.as[GeoJson])
-                .leftMap(NwsException(_))
-                .fold(M.raiseError, M.pure)
+              res.body match
+                case Left(ex) => M.raiseError(NwsException(ex))
+                case Right(value) =>
+                  parse(value)
+                    .flatMap(_.as[GeoJson])
+                    .leftMap(NwsException(_))
+                    .fold(M.raiseError, M.pure)
           }
       }
 
@@ -113,7 +114,7 @@ class Nws[F[_]: Monad](using
       }
 
   /**
-   * Limiting extraction to only the temperature/forecast 
+   * Limiting extraction to only the temperature/forecast
    * data. Other parts ignored for brevity of this exercise.
    */
   private def extractForecastData(json: Json): Result[List[Period]] =
